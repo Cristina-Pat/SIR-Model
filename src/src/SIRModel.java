@@ -14,7 +14,7 @@ package src;
  */
 
 public class SIRModel {
-	// Fields of the SIRModel class , Question 3 b
+	// Fields of the SIRModel class
 	private static final int POPULATION = 150;
 	private static final int INITIAL_INFECTIONS = 4;
 	private static final int DAYS = 60; // a period of 60 days
@@ -24,6 +24,24 @@ public class SIRModel {
 	private double[] infected;
 	private double[] recovered;
 	
+	/**
+     * Constructor for objects of class SIRModel
+     * initialises transmission rate to the first double parameter
+     * and recovery rate to the second double parameter
+     * 
+     * @param transRate is the transmission rate with values between 0 and 1
+     * @param recRate is the recovery rate with values between 0 and 1
+     */
+	
+	public SIRModel(double transRate, double recRate) {
+		TRANS_RATE = transRate;
+		REC_RATE = recRate;
+		susceptible = new double[DAYS];
+		infected = new double[DAYS];
+		recovered = new double[DAYS];
+		infected[0] = INITIAL_INFECTIONS;
+		susceptible[0] = POPULATION - INITIAL_INFECTIONS;
+	}
 	
 
 }
