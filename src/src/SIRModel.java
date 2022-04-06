@@ -43,5 +43,20 @@ public class SIRModel {
 		susceptible[0] = POPULATION - INITIAL_INFECTIONS;
 	}
 	
-
+	/**
+	 * Calculate the expected number of newly infected people in a day 
+	 * using a (density-dependent) model of infection transmission
+	 * 
+	 * @param currentInfected  The number of current infected people in a day.
+	 * @param currentSusceptible The number of current susceptible people in a day.
+	 * 
+	 * @return newlyInfected  A double for the expected newly infected number in a day.
+	 */
+	public double newlyInfected(double currentInfected,
+								double currentSusceptible) 
+	{
+		double newlyInfected = (TRANS_RATE*currentInfected*currentSusceptible)
+								/ POPULATION;
+		return newlyInfected;
+	}
 }
