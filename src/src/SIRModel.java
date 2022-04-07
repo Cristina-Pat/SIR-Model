@@ -59,4 +59,18 @@ public class SIRModel {
 								/ POPULATION;
 		return newlyInfected;
 	}
+	
+	/**
+	 * Calculate the expected number of newly recovered people in a day.
+	 * 
+	 * @param currentInfected  The number of current infected people in a day.
+	 * 
+	 * @return newlyRecovered The number of people expected to recover in a day.
+	 * 
+	 */
+	public double newlyRecovered(double currentInfected) 
+	{
+		double newlyRecovered = REC_RATE*currentInfected;
+		return newlyRecovered;
+	}
 }
