@@ -73,4 +73,22 @@ public class SIRModel {
 		double newlyRecovered = REC_RATE*currentInfected;
 		return newlyRecovered;
 	}
+	
+	/**
+	 * Calculate the change in the number of people expected to be infected 
+	 * after a day has passed.
+	 * 
+	 * @param currentInfected  The number of current infected people in a day.
+	 * @param currentSusceptible The number of current susceptible people in a day.
+	 * 
+	 * @return expectedInfected The number of people expected to be infected.
+	 * 
+	 */
+	public double changeInInfected(double currentInfected,
+								   double currentSusceptible) 
+	{
+		double expectedInfected = newlyInfected(currentInfected, currentSusceptible) 
+				- newlyRecovered(currentInfected);
+		return expectedInfected;
+	}
 }
