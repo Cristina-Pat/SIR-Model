@@ -91,4 +91,21 @@ public class SIRModel {
 				- newlyRecovered(currentInfected);
 		return expectedInfected;
 	}
+	
+	/** 
+	 * Calculates the number of infected, recovered, and susceptible people 
+	 * based on the previous day's data.
+	 * 
+	 * @param prevDay The index that allows to access the previous day's 
+	 * data in the susceptible, infected and recovered arrays.
+	 * 
+	 */
+	public void nextDay(int prevDay) 
+	{	
+		infected[prevDay+1] = infected[prevDay] + changeInInfected(infected[prevDay], susceptible[prevDay]);
+		
+		recovered[prevDay+1] = recovered[prevDay] + newlyRecovered(infected[prevDay]);
+		
+		susceptible[prevDay+1] = POPULATION - infected[prevDay+1] - recovered[prevDay+1];
+	}
 }
