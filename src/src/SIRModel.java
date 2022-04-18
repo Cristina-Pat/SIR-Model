@@ -108,4 +108,18 @@ public class SIRModel {
 		
 		susceptible[prevDay+1] = POPULATION - infected[prevDay+1] - recovered[prevDay+1];
 	}
+	
+	/**
+	 * Compute how the infection is spreading in the school population.
+	 * This method populate the infected, recovered, and susceptible arrays with data.
+	 * 
+	 */
+	public void createData() 
+	{
+		int i  = 0;
+		while (i < DAYS -1) {
+			nextDay(i);
+			i++;
+		}
+	}
 }
