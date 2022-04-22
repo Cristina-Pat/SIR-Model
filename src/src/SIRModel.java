@@ -122,4 +122,23 @@ public class SIRModel {
 			i++;
 		}
 	}
+	
+	/**
+	 * Print a graph of the number of infected people.
+	 * 
+	 */
+	public void printGraph() 
+	{
+		for(int i = 0; i < DAYS; i++){
+			
+			int numInfected = (int) Math.round(infected[i]); //convert a double to an integer by casting it to an int
+			
+			String stars = "";
+			for(int j = 0; j < numInfected; j++) {
+				stars += "*";
+			}
+			System.out.println(i + " " + stars + " (" + numInfected + ")");
+			
+		}
+	}
 }
